@@ -12,11 +12,12 @@ img {
   width: 100%;
 }
 
-button {
+.btn {
   background-color: hsl(5, 85%, 63%);
   color: hsl(36, 100%, 99%);
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
   font-size: 1rem;
+  margin-bottom: 3rem;
   border: none;
   text-transform: uppercase;
   letter-spacing: .3rem;
@@ -46,6 +47,7 @@ html {
 body {
   max-width: 1200px;
   margin: auto;
+  padding-bottom: 4rem;
 }
 
 .header {
@@ -55,19 +57,62 @@ body {
   padding: 1.25rem;
 }
 
+.header nav #menu-close {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+  z-index: 999999;
+  cursor: pointer;
+}
+
 .header nav {
-  display: none;
+  opacity: 0;
+  z-index: -9999;
+  transition: all 0.3s ease-in-out;
+}
+
+.header nav.open {
+  position: fixed;
+  opacity: 1;
+  right: 0;
+  /* left: 0; */
+  top: 0;
+  bottom: 0;
+  width: 75vw;
+  background-color: hsl(36, 100%, 99%); 
+  padding: 1.25rem;
+  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); */
+  z-index: 9999999999999;
+}
+
+.header nav ul {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header nav ul li {
+  margin: 1.5rem 0;
+  cursor: pointer;
+}
+
+.header .menu-button button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .showcase {
   padding: 1.25rem;
-  /* padding-top: 0; */
+  padding-top: 0;
 }
 
-.showcase div h1 {
+.showcase h1 {
   font-size: 2rem;
   color: hsl(240, 100%, 5%);
-  margin: 1.5rem 0;
+  margin: 1rem 0;
   font-weight: 800;
 }
 
@@ -77,8 +122,9 @@ body {
 
 .showcase .new {
   background-color: hsl(240, 100%, 5%);
-  margin-top: 2rem;
-  padding: 1.25rem 1.25rem 0;
+  padding: 1.25rem;
+  height: 100%;
+  padding-bottom: 3rem;
 }
 
 .showcase .new h2 {
@@ -87,10 +133,11 @@ body {
 
 .showcase .new p {
   font-weight: bold;
+  line-height: 2;
 }
 
 .showcase .new article {
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
 }
 
 .showcase .new article:not(:last-child) {
@@ -100,6 +147,7 @@ body {
 .showcase .new h3 {
   color: hsl(36, 100%, 99%);
   margin-bottom: 0.5rem;
+  font-size: 1.15rem;
 }
 
 .showcase .new h3:hover {
@@ -142,26 +190,81 @@ body {
   opacity: 50%;
 }
 
+@media screen and (min-width: 768px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
+
+  .header {
+    padding: 2rem 1.25rem;
+  }
+
+  .header nav {
+    opacity: 1;
+    z-index: auto;
+  }
+
+  .header nav.open {
+    position: relative;
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+    z-index: 0;
+
+  }
+
+  .header nav #menu-close {
+    display: none;
+
+  }
+
+  .header nav ul {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    top: 0;
+    transform: translateY(0%);
+  }
+
+  .header nav ul li {
+    margin: 0;
+  }
+
+  .header .menu-button button {
+    display: none;
+  }
+
   .showcase {
     display: flex;
     gap: 2rem;
   }
 
-  .showcase article h1 {
+  .showcase h1 {
     font-size: 3rem;
   }
 
-  .showcase div:first-child article {
+  .showcase > div:first-child article {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     place-items: center;
+    margin-top: 2rem;
   }
 
-  .showcase .new {
+  .showcase > div:last-child {
     margin-top: 0;
   }
+
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
+
 
 
