@@ -77,13 +77,11 @@ body {
   position: fixed;
   opacity: 1;
   right: 0;
-  /* left: 0; */
   top: 0;
   bottom: 0;
   width: 75vw;
   background-color: hsl(36, 100%, 99%); 
   padding: 1.25rem;
-  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); */
   z-index: 9999999999999;
 }
 
@@ -95,7 +93,14 @@ body {
 
 .header nav ul li {
   margin: 1.5rem 0;
+  font-size: 16px;
   cursor: pointer;
+  color: hsl(236, 13%, 42%);
+  font-weight: 500;
+}
+
+.header nav ul li:hover {
+  color: hsl(5, 85%, 63%);
 }
 
 .header .menu-button button {
@@ -159,7 +164,7 @@ body {
   padding: 1.25rem;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .cards article {
@@ -180,9 +185,14 @@ body {
 }
 
 .cards article h4 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: hsl(240, 100%, 5%);
   margin: 1rem 0;
+  font-weight: 800;
+}
+
+.cards article h4:hover {
+  color: hsl(5, 85%, 63%);
 }
 
 .cards article p {
@@ -207,6 +217,7 @@ body {
   .header nav {
     opacity: 1;
     z-index: auto;
+    width: 100%;
   }
 
   .header nav.open {
@@ -220,13 +231,13 @@ body {
 
   .header nav #menu-close {
     display: none;
-
   }
 
   .header nav ul {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 2rem;
     top: 0;
     transform: translateY(0%);
